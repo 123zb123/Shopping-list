@@ -1,4 +1,4 @@
-version: '3.8'
+version: "3.8"
 
 services:
   db:
@@ -34,6 +34,16 @@ services:
       DB_NAME: ShoppingList
     networks:
       - shopping-net
+
+  client:
+    build: ./client
+    container_name: shopping-client
+    ports:
+      - "5173:80"
+    networks:
+      - shopping-net
+    depends_on:
+      - server
 
 networks:
   shopping-net:

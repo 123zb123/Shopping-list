@@ -3,10 +3,14 @@ import ordersModel from "../../DB/models/orders";
 import { v4 as uuidv4 } from 'uuid';
 
 
-export const saveOrder = async (payload: { items: { name: string; quantity: number; categoryId: string }[] }) => {
-    const order = await ordersModel.create();
+export const saveOrder = async (items: { name: string; quantity: number; categoryId: string }[]) => {
 
-    const itemsToCreate = payload.items.map(item => ({
+    const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
+    const order = await ordersModel.create({
+        totalItems: totalItems,
+    });
+
+    const itemsToCreate = items.map(item => ({
         id: uuidv4(),
         name: item.name,
         quantity: item.quantity,
@@ -16,5 +20,5 @@ export const saveOrder = async (payload: { items: { name: string; quantity: numb
 
     await itemsModel.bulkCreate(itemsToCreate);
 
-    return { orderId: order.dataValues.id, items: itemsToCreate };
+    return { orderId: order.dataValues.id, totalOrderItems: totalItems, items: itemsToCreate };
 };
