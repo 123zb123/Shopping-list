@@ -53,6 +53,6 @@ cd Shopping-list
 docker-compose up --build
 ```
 
-# הקליינט יעלה בכתובת: http://localhost:5173
-# השרת יאזין על: http://localhost:3001
-# מסד הנתונים (SQL Server) ירוץ בתוך Docker על פורט 1433
+- הקליינט יעלה בכתובת: http://localhost:5173
+- השרת יאזין על: http://localhost:3001
+- מסד הנתונים (SQL Server) ירוץ בתוך Docker על פורט 1433
