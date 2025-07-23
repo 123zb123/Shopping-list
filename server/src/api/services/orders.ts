@@ -1,7 +1,5 @@
 import { itemsModel } from "../../DB/models/items";
 import ordersModel from "../../DB/models/orders";
-import { v4 as uuidv4 } from 'uuid';
-
 
 export const saveOrder = async (items: { name: string; quantity: number; categoryId: string }[]) => {
 
@@ -11,7 +9,6 @@ export const saveOrder = async (items: { name: string; quantity: number; categor
     });
 
     const itemsToCreate = items.map(item => ({
-        id: uuidv4(),
         name: item.name,
         quantity: item.quantity,
         categoryId: item.categoryId,

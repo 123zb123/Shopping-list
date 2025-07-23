@@ -43,7 +43,7 @@ const createDatabase = async (dbName: string): Promise<void> => {
 }
 
 export const initDatabase = async (): Promise<Sequelize> => {
-    const dbName = process.env.DB_NAME!;
+    const dbName = process.env.DB_NAME || '';
     const exists = await checkDatabaseExists(dbName);
     if (!exists) await createDatabase(dbName);
 

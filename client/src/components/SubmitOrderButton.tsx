@@ -4,7 +4,7 @@ import { useAppDispatch, useAppSelector } from "../hooks";
 import { clearCart } from "../features/cart/cartSlice";
 import { submitOrder } from "../api/shoppingApi";
 
-export default function SubmitOrderButton() {
+export const SubmitOrderButton = () => {
   const items = useAppSelector((state) => state.cart);
   const dispatch = useAppDispatch();
 
@@ -61,4 +61,4 @@ export default function SubmitOrderButton() {
       )}
     </>
   );
-}
+};

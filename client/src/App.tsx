@@ -3,7 +3,7 @@ import { Container } from "@mui/material";
 import { useAppDispatch } from "./hooks";
 import { fetchCategories } from "./features/categories/categoriesSlice";
 import { Cart } from "./features/cart/Cart";
-import SubmitOrderButton from "./components/SubmitOrderButton";
+import { SubmitOrderButton } from "./components/SubmitOrderButton";
 import { ProductForm } from "./components/ProductForm";
 
 const App = () => {
