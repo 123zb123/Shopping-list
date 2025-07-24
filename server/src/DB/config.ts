@@ -12,6 +12,6 @@ export const baseConfig: Options = {
     dialectOptions: {
         options: { encrypt: false }
     },
-    logging: process.env.NODE_ENV === 'production' ? false : (msg) =>
+    logging: process.env.MODE_ENV === 'production' ? false : (msg) =>
         console.log({ component: 'Sequelize', message: msg }),
 };
