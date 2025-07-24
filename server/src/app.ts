@@ -9,7 +9,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.get('/health', async (req, res) => {
+app.get('/health', async (_req, res) => {
     const isDbConnected = await sequelize.authenticate().then(() => true).catch(() => false);
     res.status(200).json({
         component: 'app',
